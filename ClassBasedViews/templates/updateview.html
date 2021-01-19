@@ -1,0 +1,22 @@
+{% extends 'common.html' %}
+
+
+{% block pwn %}
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+    <table align="center" border="2">
+       <tr>
+           <th colspan="2">
+               Update Employee Detail's
+           </th>
+       </tr>
+       {{ form }}
+       <tr>
+           <th>
+               <button type="submit">Save</button>
+           </th>
+       </tr>
+    </table>
+    </form>
+
+{% endblock %}

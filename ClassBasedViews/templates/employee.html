@@ -1,0 +1,30 @@
+{% extends 'common.html' %}
+
+{% block pwn %}
+    {% load static %}
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table align="center" border="2">
+        <tr>
+            {% if messages %}
+                {% for x in messages %}
+
+                    <th colspan="2"><h2>{{ x }}</h2></th>
+
+                {% endfor %}
+            {% endif %}
+        </tr>
+      <tr>
+          <th colspan="2" style="text-align: center;">
+              Add Employee Information
+          </th>
+      </tr>
+        {{ form }}
+      <tr>
+          <td colspan="2" style="text-align: center">
+              <button type="submit">Save</button>
+          </td>
+      </tr>
+    </table>
+    </form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'common.html' %}
+
+{% block pwn %}
+   <table align="center" border="2">
+
+     <tr><th>IDNO:</th><th>{{ object.idno }}</th></tr>
+     <tr><th>NAME:</th><th>{{ object.name }}</th></tr>
+     <tr><th>AGE:</th><th>{{ object.age }}</th></tr>
+     <tr><th>GENDER:</th><th>{{ object.gender }}</th></tr>
+     <tr><th>CONTACT_NO:</th><th>{{ object.contact_no }}</th></tr>
+     <tr><th>SALARY:</th><th>{{ object.salary }}</th></tr>
+     <tr><th>PHOTO:</th><th>
+         <img src="{{ object.photo.url }}">
+     </th></tr>
+     <tr><th>ADDRESS:</th><th>{{ object.address }}</th></tr>
+     <tr><th>EMAIL_ID:</th><th>{{ object.email_id }}</th></tr>
+   </table>
+{% endblock %}

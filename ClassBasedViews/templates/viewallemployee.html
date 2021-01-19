@@ -1,0 +1,49 @@
+{% extends 'common.html' %}
+
+{% block pwn %}
+    {% load static %}
+
+    <table align="center" border="2">
+    <form action="{% url 'search_employee' %}" method="post">
+    {% csrf_token %}
+      <tr>
+          <th colspan="10" style="text-align: center;">
+              Search Employee With IDNO:
+              <input type="search" placeholder="search" required name="s1">
+              <button type="submit">Search</button>
+          </th>
+      </tr>
+    </form>
+      <tr>
+          <th colspan="10" style="text-align: center;font-size: 30px;font-family: 'Agency FB';color: white">
+              All Employee Information
+          </th>
+      </tr>
+      <tr style="color: #8b2025;font-family: sans-serif;font-size: 16px;text-align: center;">
+          <th>IDNO</th>
+          <th>NAME</th>
+          <th>AGE</th>
+          <th>GENDER</th>
+          <th>CONTACT_NO</th>
+          <th>SALARY</th>
+          <th>PHOTO</th>
+          <th>ADDRESS</th>
+          <th>EMAIL</th>
+          <th>PASSWORD</th>
+      </tr>
+      {% for x in object_list %}
+          <tr>
+             <th>{{ x.idno }}</th>
+             <th>{{ x.name }}</th>
+             <th>{{ x.age }}</th>
+             <th>{{ x.gender }}</th>
+             <th>{{ x.contact_no }}</th>
+             <th>{{ x.salary }}</th>
+              <th><img src="{{ x.photo.url }}" width="40px" height="40px"></th>
+             <th>{{ x.address }}</th>
+             <th>{{ x.email_id }}</th>
+             <th>{{ x.password }}</th>
+          </tr>
+      {% endfor %}
+    </table>
+{% endblock %}
